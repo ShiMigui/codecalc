@@ -1,0 +1,46 @@
+.gap {
+    &-lg { gap: 20px; }
+    &-md { gap: 10px; }
+    &-sm { gap: 5px; }
+}
+
+$gdc-size: 2, 3, 4, 5, 6;
+$gdc-start: 1, 2, 3, 4, 5, 6;
+$gdc-end: 1, 2, 3, 4, 5, 6;
+
+$gdr-size: 2, 3, 4, 5, 6;
+$gdr-start: 1, 2, 3, 4, 5, 6;
+$gdr-end: 1, 2, 3, 4, 5, 6;
+
+%gd { display: grid; }
+%gdr-end { grid-row-end: var(--gdr-end); }
+%gdc-end { grid-column-end: var(--gdc-end); }
+%gdr-start { grid-row-start: var(--gdr-start); }
+%gdc-start { grid-column-start: var(--gdc-start); }
+%gdr { grid-template-rows: repeat(var(--gdr), 1fr); }
+%gdc { grid-template-columns: repeat(var(--gdc), 1fr); }
+
+@mixin def-gd($ini, $size) {
+    @each $i in $size {
+        .#{$ini}-#{$i} {
+            @extend %gd, %#{$ini};
+            --#{$ini}: #{$i};
+        }
+    }
+}
+
+@mixin def-gd-position($ini, $prop, $size) {
+    @each $i in $size {
+        .#{$ini}-#{$prop}-#{$i} {
+            @extend %#{$ini}-#{$prop};
+            --#{$ini}-#{$prop}: #{$i};
+        }
+    }
+}
+
+@include def-gd('gdc', $gdc-size);
+@include def-gd('gdr', $gdr-size);
+@include def-gd-position('gdc', 'end', $gdc-end);
+@include def-gd-position('gdr', 'end', $gdr-end);
+@include def-gd-position('gdc', 'start', $gdc-start);
+@include def-gd-position('gdr', 'start', $gdr-start);

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmer's Calculator</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+    <main id="calculator" class="gap-lg">
+        <section id="display">
+            <input readonly type="text" id="result" placeholder="">
+            <input readonly type="text" id="expression">
+        </section>
+        <section id="non-basic" class="gdc-5 gap-md" role="grid" aria-label="math non-basic operations">
+            <button data-key="f">x!</button>
+            <button data-key="^">x<sup>y</sup></button>
+            <button data-key="2√">√<span>n</span></button>
+            <button data-key="r"><sup>y</sup>√<span>x</span></button>
+            <button data-key="l">ln</button>
+            <button data-key="e">e<sup>x</sup></button>
+            <button data-key="s">sin</button>
+            <button data-key="c">cos</button>
+            <button data-key="(">(</button>
+            <button data-key=")">)</button>
+        </section>
+        <section class="gdc-5 gap-md" role="grid" aria-label="math basic operations">
+            <div class="gdc-3 gdc-start-1 gdc-end-4 gap-sm" role="grid" aria-label="numbers">
+                <button data-key="7">7</button><button data-key="8">8</button><button data-key="9">9</button>
+                <button data-key="4">4</button><button data-key="5">5</button><button data-key="6">6</button>
+                <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+                <button data-key="0" class="gdc-start-1 gdc-end-3">0</button><button data-key=".">.</button>
+            </div>
+            <div class="gdc-2 gdc-start-4 gdc-end-6 gap-sm">
+                <button data-key="Escape">DEL</button><button data-key="Backspace">AC</button>
+                <button data-key="*">*</button><button data-key="/">/</button>
+                <button data-key="+">+</button><button data-key="-">-</button>
+                <button data-key="Enter" class="gdc-start-1 gdc-end-3">=</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="./assets/scripts/operations/constants.js"></script>
+    <script src="./assets/scripts/operations/exponential.js"></script>
+    <script src="./assets/scripts/operations/factorial.js"></script>
+    <script src="./assets/scripts/operations/ln.js"></script>
+    <script src="./assets/scripts/operations/nthRoot.js"></script>
+    <script src="./assets/scripts/operations/trigonometry.js"></script>
+    <script src="./assets/scripts/script.js" type="module"></script>
+</body>
+
+</html>
